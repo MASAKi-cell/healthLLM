@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "target": "es2016",
+    "jsx": "react-jsx",
+    "module": "commonjs",
+    "esModuleInterop": true,
+    "strict": true,
+    "skipLibCheck": true,
+    "noFallthroughCasesInSwitch": true, // switch文で、caseをbreakやreturnで終えていることを必須
+    "forceConsistentCasingInFileNames": true // ファイルの文字列の大文字小文字を区別
+  }
+}

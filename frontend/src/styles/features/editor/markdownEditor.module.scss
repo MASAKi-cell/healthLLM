@@ -1,0 +1,7 @@
+@use '@renderer/styles/libs/functions/index' as *;
+
+.wrapper {
+  margin: 30px;
+  height: 900px;
+  background: p('black', 'l2');
+}

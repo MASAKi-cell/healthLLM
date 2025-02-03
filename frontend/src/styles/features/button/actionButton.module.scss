@@ -1,0 +1,10 @@
+@use '@renderer/styles/libs/functions/index' as *;
+@use '@renderer/styles/_variable.scss' as *;
+
+.wrapper {
+  border-radius: 6px;
+  border: 1px solid p('black');
+  transition-duration: 100sm;
+  padding: 2px;
+  background-color: $baseBgColor;
+}
