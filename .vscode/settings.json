@@ -12,7 +12,8 @@
     "**/node_modules": true,
     "**/*.module.scss.d.ts": true,
     "**/dist": true,
-    "**/build": true
+    "**/build": true,
+    "**/.mypy_cache": true
   },
   "editor.codeActionsOnSave": {
     "source.fixAll.stylelint": "explicit", // 保存時に自動修正
