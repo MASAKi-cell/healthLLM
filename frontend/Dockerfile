@@ -4,13 +4,19 @@ WORKDIR /src
 RUN chown -R node:node /src && chmod -R 770 /src
 
 # --- development for local ---
-FROM base AS builder
+FROM base AS development
 COPY ["package.json", "package-lock.json*", "./"]
 RUN npm install
 COPY . .
-RUN npm run build
 EXPOSE 3001
 ENTRYPOINT ["npm", "run", "start"]
+
+# --- builder ---
+FROM base AS builder
+COPY --chown=node:node . .
+USER node
+RUN npm install
+RUN npm run build
 
 # --- Production Stage ---
 FROM base AS production
