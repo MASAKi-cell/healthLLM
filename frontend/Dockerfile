@@ -20,7 +20,7 @@ RUN npm run build
 
 # --- Production Stage ---
 FROM base AS production
-LABEL org.label-schema.name="backend-prod"
+LABEL org.label-schema.name="frontend-prod"
 ENV NODE_ENV=production
 COPY --chown=node:node --from=builder /src/build ./build
 COPY --chown=node:node ./package*.json ./
