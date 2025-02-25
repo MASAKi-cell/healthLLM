@@ -6,7 +6,11 @@ RUN chown -R node:node /src && chmod -R 770 /src
 # --- development for local ---
 FROM base AS development
 COPY ["package.json", "package-lock.json*", "./"]
-RUN npm install
+# キャッシュディレクトリを指定
+RUN \
+  --mount=type=cache,target=/root/.npm \
+  --mount=type=cache,target=/workspace/node_modules \
+  npm install
 COPY . .
 EXPOSE 3001
 ENTRYPOINT ["npm", "run", "start"]
