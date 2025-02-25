@@ -28,7 +28,7 @@ LABEL org.label-schema.name="frontend-prod"
 ENV NODE_ENV=production
 COPY --chown=node:node --from=builder /src/build ./build
 COPY --chown=node:node ./package*.json ./
-RUN npm install --only=production
+RUN npm install -g serve
 USER node
-ENTRYPOINT ["node", "./build/index.html"]
+ENTRYPOINT ["serve", "-s", "./build"]
 EXPOSE 3001
