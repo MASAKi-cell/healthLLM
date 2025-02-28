@@ -17,14 +17,23 @@
   },
   "editor.codeActionsOnSave": {
     "source.fixAll.stylelint": "explicit", // 保存時に自動修正
-    "source.fixAll.eslint": "explicit" // 保存時に自動修正
+    "source.fixAll.eslint": "explicit", // 保存時に自動修正
+    "source.organizeImports": "explicit" // ファイル保存時に未使用のimport文を削除及び並べ替え
   },
   "cSpell.words": ["codezoo", "ianvs", "MASA", "yarnrc"],
   "[python]": {
     "editor.defaultFormatter": "ms-python.black-formatter",
-    "editor.formatOnSave": true
+    "editor.formatOnSave": true // 保存時に自動修正
   },
-  // 最大文字数の指定(flake8と合わせた数字に設定)
-  "black-formatter.args": ["--line-length=88"],
-  "flake8.args": ["--max-line-length=88", "--ignore=E203,W503,W504"]
+  "python.analysis.typeCheckingMode": "strict", // mypy型チェックの厳格化
+  "black-formatter.args": [
+    "--line-length=88", // 最大文字数の指定(flake8と合わせた数字に設定)
+    "--force-exclude", // 除外対象のフォーマット
+    ".git|build|dist|.pytest_cache|.mypy_cache|__pycache__"
+  ],
+  "flake8.args": [
+    "--max-line-length=88", // 最大文字数の指定
+    "--ignore=E203,W503,W504",
+    "--exclude=.git,__pycache__,build,dist,.pytest_cache,.mypy_cache" // 除外対象のフォーマット
+  ]
 }
