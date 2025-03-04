@@ -20,7 +20,7 @@
     "source.fixAll.eslint": "explicit", // 保存時に自動修正
     "source.organizeImports": "explicit" // ファイル保存時に未使用のフォルダ削除 / import文を削除及び並べ替え
   },
-  "cSpell.words": ["codezoo", "ianvs", "MASA", "yarnrc"],
+  "cSpell.words": ["ianvs", "MASA", "yarnrc"],
   "[python]": {
     "editor.defaultFormatter": "ms-python.black-formatter",
     "editor.formatOnSave": true // 保存時に自動修正
