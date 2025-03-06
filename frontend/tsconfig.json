@@ -1,12 +1,29 @@
 {
   "compilerOptions": {
-    "target": "es2016",
-    "jsx": "react-jsx",
-    "module": "commonjs",
-    "esModuleInterop": true,
-    "strict": true,
+    "target": "ES2017",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
     "skipLibCheck": true,
+    "strict": true,
+    "noEmit": true,
+    "esModuleInterop": true,
     "noFallthroughCasesInSwitch": true, // switch文で、caseをbreakやreturnで終えていることを必須
-    "forceConsistentCasingInFileNames": true // ファイルの文字列の大文字小文字を区別
-  }
+    "forceConsistentCasingInFileNames": true, // ファイルの文字列の大文字小文字を区別
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "incremental": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "paths": {
+      "@/*": ["./src/*"]
+    }
+  },
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "exclude": ["node_modules"]
 }

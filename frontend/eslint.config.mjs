@@ -1,9 +1,20 @@
+import { FlatCompat } from "@eslint/eslintrc";
 import typescriptEslint from "@typescript-eslint/eslint-plugin";
 import tsParser from "@typescript-eslint/parser";
-import unusedImports from "eslint-plugin-unused-imports";
 import eslintConfigPrettier from "eslint-config-prettier";
+import unusedImports from "eslint-plugin-unused-imports";
+import { dirname } from "path";
+import { fileURLToPath } from "url";
 
-export default [
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
+const compat = new FlatCompat({
+  baseDirectory: __dirname,
+});
+
+const eslintConfig = [
+  ...compat.extends("next/core-web-vitals", "next/typescript"),
   {
     files: ["**/*.ts"],
   },
@@ -21,14 +32,14 @@ export default [
       "no-unused-vars": "off",
       "unused-imports/no-unused-imports": "error",
       "unused-imports/no-unused-vars": [
-            "warn",
-            {
-                "vars": "all",
-                "varsIgnorePattern": "^_",
-                "args": "after-used",
-                "argsIgnorePattern": "^_",
-            },
-        ],
+        "warn",
+        {
+          vars: "all",
+          varsIgnorePattern: "^_",
+          args: "after-used",
+          argsIgnorePattern: "^_",
+        },
+      ],
       "@typescript-eslint/naming-convention": [
         "warn",
         {
@@ -36,13 +47,17 @@ export default [
           format: ["camelCase", "PascalCase"],
         },
       ],
-      "@typescript-eslint/explicit-module-boundary-types": "error", /** 関数の戻り値と引数の明示的な型を追加する */
-      "@typescript-eslint/no-non-null-assertion": "error", /** 非 null アサーションの禁止 */
+      "@typescript-eslint/explicit-module-boundary-types":
+        "error" /** 関数の戻り値と引数の明示的な型を追加する */,
+      "@typescript-eslint/no-non-null-assertion":
+        "error" /** 非 null アサーションの禁止 */,
       curly: "warn",
       eqeqeq: "warn",
       "no-throw-literal": "warn",
       semi: "warn",
     },
   },
-  eslintConfigPrettier, /** Prettierとの併用 */
+  eslintConfigPrettier /** Prettierとの併用 */,
 ];
+
+export default eslintConfig;
