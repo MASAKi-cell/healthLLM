@@ -1,5 +1,5 @@
 # syntax=docker/dockerfile:1
-FROM node:16-alpine AS base
+FROM node:20-alpine AS base
 WORKDIR /src
 RUN chown -R node:node /src && chmod -R 770 /src
 
@@ -13,11 +13,13 @@ RUN \
   npm install
 COPY . .
 EXPOSE 3001
-ENTRYPOINT ["npm", "run", "start"]
+ENTRYPOINT ["npm", "run", "dev"]
 
 # --- builder ---
 FROM base AS builder
 COPY --chown=node:node . .
+COPY --chown=node:node tsconfig.json .
+COPY --chown=node:node next.config.ts .
 USER node
 RUN npm install
 RUN npm run build
@@ -26,9 +28,10 @@ RUN npm run build
 FROM base AS production
 LABEL org.label-schema.name="frontend-prod"
 ENV NODE_ENV=production
-COPY --chown=node:node --from=builder /src/build ./build
+COPY --chown=node:node --from=builder /src/.next ./.next
+COPY --chown=node:node --from=builder /src/public ./public
 COPY --chown=node:node ./package*.json ./
-RUN npm install -g serve
+RUN npm install --omit=dev
 USER node
-ENTRYPOINT ["serve", "-s", "./build"]
+ENTRYPOINT ["npm", "run", "start"]
 EXPOSE 3001
