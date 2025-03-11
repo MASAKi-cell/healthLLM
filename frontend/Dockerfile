@@ -12,7 +12,7 @@ RUN \
   --mount=type=cache,target=/workspace/node_modules \
   npm install
 COPY . .
-EXPOSE 3001
+EXPOSE 3000
 ENTRYPOINT ["npm", "run", "dev"]
 
 # --- builder ---
@@ -34,4 +34,4 @@ COPY --chown=node:node ./package*.json ./
 RUN npm install --omit=dev
 USER node
 ENTRYPOINT ["npm", "run", "start"]
-EXPOSE 3001
+EXPOSE 3000
