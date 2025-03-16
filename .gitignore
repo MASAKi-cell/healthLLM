@@ -14,9 +14,9 @@
 .DS_Store
 .env
 .env.local
-.env.development.local
-.env.test.local
-.env.production.local
+.env.*
+env/
+env.bak/
 
 npm-debug.log*
 
@@ -25,6 +25,17 @@ npm-debug.log*
 __pycache__/
 *.py[cod]
 *$py.class
+*.egg-info/
+*.egg
+
+# Pipenv関連
+Pipfile.lock
+.venv/
+ENV/
+env/
+venv/
+venv.bak/
+
 
 # C extensions
 *.so
@@ -142,11 +153,3 @@ dmypy.json
 cython_debug/
 .pypirc
 
-
-# Environments
-.venv
-env/
-venv/
-ENV/
-env.bak/
-venv.bak/
