@@ -4,7 +4,6 @@ WORKDIR /app
 ENV PYTHONUNBUFFERED=1 \
     PIPENV_VENV_IN_PROJECT=1
 RUN pip install --no-cache-dir pipenv
-
 RUN adduser --disabled-password --gecos "" --uid 1001 api
 
 # --- development for local ---
