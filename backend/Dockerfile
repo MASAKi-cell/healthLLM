@@ -1,5 +1,5 @@
 # syntax=docker/dockerfile:1
-FROM python:3.9-slim AS base
+FROM python:3.10.12-slim AS base
 WORKDIR /app
 ENV PYTHONUNBUFFERED=1 \
     PIPENV_VENV_IN_PROJECT=1
