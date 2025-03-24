@@ -1,4 +1,5 @@
 # syntax=docker/dockerfile:1
+
 FROM python:3.10.12-slim AS base
 WORKDIR /app
 ENV PYTHONUNBUFFERED=1 \
@@ -11,19 +12,18 @@ FROM base AS development
 COPY Pipfile Pipfile.lock ./
 RUN pipenv install --dev
 COPY . .
-EXPOSE 3002
+EXPOSE 8000
 CMD ["pipenv", "run", "uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "80", "--reload"]
-
 
 # --- builder ---
 FROM base AS builder
-COPY Pipfile Pipfile.lock ./
-RUN pipenv install --deploy
-COPY . .
+COPY --chown=api:api Pipfile Pipfile.lock ./
+RUN chown -R api:api /app
 USER api
+RUN pipenv install --deploy --ignore-pipfile
 COPY --chown=api:api . .
 
-# --- Production Stage ---
+# --- production stage ---
 FROM base AS production
 COPY --chown=api:api --from=builder /app /app
 WORKDIR /app
