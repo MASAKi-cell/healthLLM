@@ -1,4 +1,5 @@
 #!/bin/bash
+set -euo pipefail
 
 timestamp=$(date +%s)
 Python -m venv .venv_temp_${timestamp}
