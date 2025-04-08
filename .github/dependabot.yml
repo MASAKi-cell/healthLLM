@@ -1,10 +1,11 @@
 version: 2
 updates:
-  - package-ecosystem: 'npm'
-    directory: '/'
+  # frontend npm用の更新
+  - package-ecosystem: "npm"
+    directory: "/frontend"
     schedule:
-      interval: 'weekly'
-      time: '00:00'
+      interval: "weekly"
+      time: "00:00"
     open-pull-requests-limit: 10
     reviewers:
       - MASAKi-cell
@@ -15,7 +16,27 @@ updates:
       prefix-development: chore
       include: scope
     ignore: # バージョンアップの除外設定
-      - dependency-name: '*'
+      - dependency-name: "*"
         update-types:
           # メジャーバージョンは除外、本番運用している場合、気軽にupdateできない為
+          - version-update:semver-major
+
+  # backend: pipenv 用の更新
+  - package-ecosystem: "pip"
+    directory: "/backend"
+    schedule:
+      interval: "weekly"
+      time: "00:00"
+    open-pull-requests-limit: 10
+    reviewers:
+      - MASAKi-cell
+    assignees:
+      - MASAKi-cell
+    commit-message:
+      prefix: fix
+      prefix-development: chore
+      include: scope
+    ignore:
+      - dependency-name: "*"
+        update-types:
           - version-update:semver-major
