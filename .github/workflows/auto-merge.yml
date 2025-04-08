@@ -10,8 +10,6 @@ jobs:
     permissions: # プルリクエスト・ソースコードの書き込み許可
       contents: write
       pull-requests: write
-    env:
-      GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }} # GitHub CLIのクレデンシャル
     steps:
       - uses: actions/checkout@v4
       - id: meta
