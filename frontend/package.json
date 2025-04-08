@@ -24,7 +24,7 @@
     "eslint": "^9",
     "eslint-config-next": "15.2.4",
     "prettier": "^3.5.3",
-    "stylelint": "^16.15.0",
+    "stylelint": "^16.18.0",
     "typescript": "^5"
   }
 }
