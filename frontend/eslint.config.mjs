@@ -29,7 +29,13 @@ const eslintConfig = [
       sourceType: "module",
     },
     rules: {
-      "no-unused-vars": "off",
+      "no-unused-vars": ["error", { /**  */
+        "vars": "all",
+        "args": "after-used",
+        "caughtErrors": "all",
+        "ignoreRestSiblings": false,
+        "reportUsedIgnorePattern": false
+    }],
       "unused-imports/no-unused-imports": "error",
       "unused-imports/no-unused-vars": [
         "warn",
