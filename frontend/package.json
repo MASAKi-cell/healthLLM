@@ -13,7 +13,7 @@
   "dependencies": {
     "eslint-plugin-unused-imports": "^4.1.4",
     "next": "15.2.1",
-    "react": "^19.0.0",
+    "react": "^19.1.0",
     "react-dom": "^19.0.0"
   },
   "devDependencies": {
