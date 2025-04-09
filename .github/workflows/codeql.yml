@@ -46,3 +46,22 @@ jobs:
         uses: github/codeql-action/analyze@v3
         with:
           category: "/language:${{matrix.language}}"
+
+        # フロントエンドのDockerfileチェック
+      - name: Run Trivy vulnerability scanner for frontend
+        uses: aquasecurity/trivy-action@master
+        with:
+          scan-type: config
+          scan-ref: ./frontend/Dockerfile
+          format: table
+          exit-code: 0
+          trivy-config: trivy.yaml
+        # バックエンドのDockerfileチェック
+      - name: Run Trivy vulnerability scanner for backend
+        uses: aquasecurity/trivy-action@master
+        with:
+          scan-type: config
+          scan-ref: ./backend/Dockerfile
+          format: table
+          exit-code: 0
+          trivy-config: trivy.yaml
