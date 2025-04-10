@@ -55,7 +55,8 @@ jobs:
           scan-ref: ./frontend/Dockerfile
           format: table
           exit-code: 0
-          trivy-config: trivy.yaml
+          ignore-unfixed: true
+          severity: "CRITICAL,HIGH"
         # バックエンドのDockerfileチェック
       - name: Run Trivy vulnerability scanner for backend
         uses: aquasecurity/trivy-action@master
@@ -64,4 +65,5 @@ jobs:
           scan-ref: ./backend/Dockerfile
           format: table
           exit-code: 0
-          trivy-config: trivy.yaml
+          ignore-unfixed: true
+          severity: "CRITICAL,HIGH"
