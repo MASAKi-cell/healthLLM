@@ -1,4 +1,4 @@
-name: ci healthLLM
+name: frontend application ci
 
 on:
   push:
