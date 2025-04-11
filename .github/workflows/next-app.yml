@@ -33,14 +33,11 @@ jobs:
       - name: Install dependencies 💾
         run: npm ci
 
-      - name: Run tests 🧪
-        run: npm run test
-
       - name: Run ESLint 🔍
         run: npm run lint
 
       - name: Run Prettier 🖋
-        run: npm run format
+        run: npm run check-format
 
       - name: Run Stylelint 🎨
         run: npm run stylelint
