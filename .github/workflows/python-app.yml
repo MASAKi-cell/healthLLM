@@ -21,14 +21,21 @@ jobs:
       - name: Install dependencies 💾
         run: |
           python -m pip install --upgrade pip
-          pip install flake8 pytest
+          pip install flake8 mypy isort black
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
       - name: Lint with flake8 📟
         run: |
           flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
-          flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
-      - name: Test with pytest ⌚️
-        run: |
-          pytest
+          flake8 . --count --exit-zero --max-complexity=10 --max-line-length=88 --statistics
+
+      - name: Type check with mypy 🧠
+        run: mypy backend
+
+      - name: Check import order with isort 📚
+        run: isort --check-only --diff backend
+
+      - name: Check formatting with black 🎨
+        run: black --check backend
+
       - name: Docker Test 🧪
         run: docker build -t test-backend ./backend
