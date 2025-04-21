@@ -8,6 +8,9 @@ on:
 jobs:
   ci:
     runs-on: ${{ matrix.os }}
+    defaults:
+      run:
+        working-directory: frontend
     strategy:
       matrix:
         os: [ubuntu-latest]
@@ -25,7 +28,7 @@ jobs:
         uses: actions/cache@v4
         with:
           path: ~/.npm
-          key: ${{ runner.os }}-${{ runner.arch }}-build-${{ hashFiles('**/package-lock.json') }}
+          key: ${{ runner.os }}-${{ runner.arch }}-build-${{ hashFiles('frontend/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-${{ runner.arch }}-build-
             ${{ runner.os }}-build-
