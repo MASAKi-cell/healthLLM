@@ -1,18 +1,11 @@
 @use '@renderer/styles/libs/functions/index' as *;
 
-$baseFontColor: p('black'); // #1f1f1f
-$baseTextColor: p('gray'); // #595959
+$baseFontColor: p('black');#0b0812$baseBorderColor // #bfbfbf
 
-$errTextColor: p('red'); // #de2323
-$errBgColor: p('red', 'l1'); // #fff2f0
+$baseContainerWidth: 393;#bfbfbf$baseContainerWidth#bfbfbf$baseContainerWidth#bfbfbf$baseContainerWidth
+$baseContainerHeight: 852;$baseContainerHeight$baseContainerHeight
 
-$baseBgColor: p('black', 'l1'); // #0b0812
-$baseBorderColor: p('border'); // #bfbfbf
-
-$baseContainerWidth: 393;
-$baseContainerHeight: 852;
-
-$SFFont: -apple-system, sans-serif;
+$SFFont: -apple-system, sans-serif;$SFFont
 $NotoSerif: 'Noto Serif', serif;
 $Lora: 'Lora', serif;
 

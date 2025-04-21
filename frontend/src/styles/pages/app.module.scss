@@ -9,8 +9,8 @@
 
 .sidebar {
   width: 250px;
-  overflow: auto;
   padding-top: 35px;
+  overflow: auto;
   background: $baseBgColor;
   opacity: 0.95;
 }
@@ -18,8 +18,8 @@
 .content {
   flex: 1;
   overflow: auto;
-  border-left: solid p('blue', 'l2');
   background: p('black', 'l2');
+  border-left: solid p('blue', 'l2');
   opacity: 0.98;
 }
 
