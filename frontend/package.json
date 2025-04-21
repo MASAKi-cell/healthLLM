@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "check-format": "prettier --check src",
+    "format": "prettier --write src",
+    "check-format": "prettier -check src",
     "stylelint": "stylelint 'src/**/*.{css,scss}' --fix"
   },
   "dependencies": {
