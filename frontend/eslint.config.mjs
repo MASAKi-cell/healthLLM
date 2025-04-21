@@ -53,8 +53,6 @@ const eslintConfig = [
           format: ["camelCase", "PascalCase"],
         },
       ],
-      // "@typescript-eslint/explicit-module-boundary-types":
-      //   "error" /** 関数の戻り値と引数の明示的な型を追加する */,
       "@typescript-eslint/no-non-null-assertion":
         "error" /** 非 null アサーションの禁止 */,
       curly: "warn",
