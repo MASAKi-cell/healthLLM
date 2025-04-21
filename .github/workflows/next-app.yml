@@ -46,4 +46,4 @@ jobs:
         run: npm run stylelint
 
       - name: Docker Test 🧪
-        run: docker build -t test-frontend ./frontend
+        run: docker build -t test-frontend .
