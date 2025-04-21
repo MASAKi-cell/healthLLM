@@ -1,6 +1,3 @@
-@use '@renderer/styles/_variable.scss' as *;
-@use '@renderer/styles/libs/functions/index' as *;
-
 .wrapper {
   display: flex;
   flex-direction: row;
@@ -18,8 +15,6 @@
 .content {
   flex: 1;
   overflow: auto;
-  background: p('black', 'l2');
-  border-left: solid p('blue', 'l2');
   opacity: 0.98;
 }
 
